@@ -1,0 +1,17 @@
+url: https://observer.poc.example/
+
+port: 3000
+
+db:
+  host: db
+  port: 5432
+  db: misskey_observer
+  user: postgres
+  pass: postgres
+
+redis:
+  host: redis
+  port: 6379
+  prefix: misskey-observer
+
+id: ulid

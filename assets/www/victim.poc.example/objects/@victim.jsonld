@@ -1,0 +1,22 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://w3id.org/security/v1"
+  ],
+  "id": "https://victim.poc.example/objects/@victim.jsonld",
+  "type": "Person",
+  "following": "https://victim.poc.example/objects/@victim/following.jsonld",
+  "followers": "https://victim.poc.example/objects/@victim/followers.jsonld",
+  "inbox": "https://victim.poc.example/objects/@victim/inbox.jsonld",
+  "outbox": "https://victim.poc.example/objects/@victim/outbox.jsonld",
+  "preferredUsername": "victim",
+  "name": "Attack victim",
+  "summary": "This is a legitimate actor to be the target of the attack in the PoC",
+  "url": "https://victim.poc.example/objects/@victim.jsonld",
+  "published": "2015-02-10T15:04:55Z",
+  "publicKey": {
+    "id": "https://victim.poc.example/objects/@victim.jsonld#main-key",
+    "owner": "https://victim.poc.example/objects/@victim.jsonld",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnH20Pe2xYuxiZ5IU3Xp5\nXA77P3QRLU7I48SSBnG4rObto7vbWMEEOXnB+mrvSBUP8tRSPxKw+8SlcZrWkNiY\nVaS2wQ7RzbbHE11K7gU3zEhgQ186PJOMhdtU9MHU/QLRDrhIJFipUuJqU7DKuzKI\nZfCB6EVfxRGA7X3umTiJ3QXlH4PTASiUle36SDYLp3WNuOIdEmpJ9C95tdB3+EuM\nQkAzmnS7xFGtXAEGubFPJUVTMnI8bQ58Vmk8XimJ5k3w7VHi1OLu0f13ln3NwJYU\nzAtd0XMjNRpD7CNQ7vbb3YlQY9+C999iOwW7buvST6LGjMgsjL83xawPxlQUl10P\nywIDAQAB\n-----END PUBLIC KEY-----\n"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "https://attacker.poc.example/objects/@attacker/outbox/1.jsonld",
+  "type": "Create",
+  "actor": "https://attacker.poc.example/objects/@attacker.jsonld",
+  "object": "https://attacker.poc.example/objects/@attacker/notes/1.jsonld",
+  "published": "2015-02-10T15:04:55Z",
+  "to": "https://www.w3.org/ns/activitystreams#Public",
+  "cc": "https://attacker.poc.example/objects/@attacker/followers.jsonld"
+}

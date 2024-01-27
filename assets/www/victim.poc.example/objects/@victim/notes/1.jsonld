@@ -1,0 +1,17 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://w3id.org/security/v1",
+    {
+      "sensitive": "as:sensitive"
+    }
+  ],
+  "id": "https://victim.poc.example/objects/@victim/notes/1.jsonld",
+  "type": "Note",
+  "attributedTo": "https://victim.poc.example/objects/@victim.jsonld",
+  "content": "This is a legitimate note",
+  "published": "2015-02-10T15:04:55Z",
+  "to": "https://www.w3.org/ns/activitystreams#Public",
+  "cc": "https://victim.poc.example/objects/@victim/followers.jsonld",
+  "sensitive": false
+}

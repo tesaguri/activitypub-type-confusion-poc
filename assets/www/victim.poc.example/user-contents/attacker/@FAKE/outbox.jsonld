@@ -1,0 +1,9 @@
+  {
+    "@context": "https://www.w3.org/ns/activitystreams",
+    "id": "https://victim.poc.example/user-contents/attacker/@FAKE/outbox.jsonld",
+    "type": "OrderedCollection",
+    "totalItems": 1,
+    "orderedItems": [
+      "https://victim.poc.example/user-contents/attacker/@FAKE/outbox/1.jsonld"
+    ]
+  }

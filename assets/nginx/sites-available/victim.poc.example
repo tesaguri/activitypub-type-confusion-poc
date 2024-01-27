@@ -1,0 +1,16 @@
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    include snippets/cert.conf;
+
+    server_name victim.poc.example;
+
+    root /var/www/victim.poc.example;
+
+    include snippets/static-ap.conf;
+}
+
+# vim: set ft=nginx:

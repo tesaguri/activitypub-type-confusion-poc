@@ -1,0 +1,17 @@
+url: https://victim.poc.example/
+
+port: 3000
+
+db:
+  host: db
+  port: 5432
+  db: misskey_victim
+  user: postgres
+  pass: postgres
+
+redis:
+  host: redis
+  port: 6379
+  prefix: misskey-victim
+
+id: ulid

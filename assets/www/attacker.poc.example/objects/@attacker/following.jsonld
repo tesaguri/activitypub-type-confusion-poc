@@ -1,0 +1,7 @@
+  {
+    "@context": "https://www.w3.org/ns/activitystreams",
+    "id": "https://attacker.poc.example/objects/@attacker/following.jsonld",
+    "type": "OrderedCollection",
+    "totalItems": 0,
+    "orderedItems": []
+  }

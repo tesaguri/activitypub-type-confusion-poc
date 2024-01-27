@@ -1,0 +1,22 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://w3id.org/security/v1"
+  ],
+  "id": "https://attacker.poc.example/objects/@attacker.jsonld",
+  "type": "Person",
+  "following": "https://attacker.poc.example/objects/@attacker/following.jsonld",
+  "followers": "https://attacker.poc.example/objects/@attacker/followers.jsonld",
+  "inbox": "https://attacker.poc.example/objects/@attacker/inbox.jsonld",
+  "outbox": "https://attacker.poc.example/objects/@attacker/outbox.jsonld",
+  "preferredUsername": "attacker",
+  "name": "Attacker",
+  "summary": "The supposed attacker of the PoC",
+  "url": "https://attacker.poc.example/objects/@attacker.jsonld",
+  "published": "2015-02-10T15:04:55Z",
+  "publicKey": {
+    "id": "https://attacker.poc.example/objects/@attacker.jsonld#main-key",
+    "owner": "https://attacker.poc.example/objects/@attacker.jsonld",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkFqLkysr6pPyXj+O6ykx\nPMLhOe59JxZF1q2dDMWu9nnhHBxkfc0/bmCSrzjRoJrV+THbju1SZ9BXERABzKjy\nA+s561gE/9aPie22VuyCK//RcuIYhiQJ3HlCKa9w4+hLdXq7VwZ0OaZS5M4pLYls\nnD5UkWeSIMixsZS27ywZWUGY7taouuKKVGBPR6o8XcPz20VHZ5LWaGXiFvEO16Ch\n338fAqmcSOCigEL9dS9AguoJnx01028s7BqXvMb+GMer3V+W3uyNzLzHn9uXDiKe\nJ2a/lCRCGaENHXt30y0Zoq/Z4HgLYsyySKPHgNi+/xuKaFMsBGaMhK73lNd5G8TJ\ncwIDAQAB\n-----END PUBLIC KEY-----\n"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "subject": "acct:victim@victim.poc.example",
+  "aliases": [
+    "https://victim.poc.example/objects/@victim.jsonld"
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://victim.poc.example/objects/@victim.jsonld"
+    }
+  ]
+}

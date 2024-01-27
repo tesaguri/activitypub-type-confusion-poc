@@ -1,0 +1,98 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:1-alpine-slim
+    depends_on:
+      observer:
+        condition: service_healthy
+    networks:
+      external_network:
+      internal_network:
+        aliases:
+          - attacker.poc.example
+          - observer.poc.example
+          - victim.poc.example
+    ports:
+      - '127.0.0.1:3000:443'
+    expose:
+      - '443'
+    volumes:
+      - ./nginx/sites-available:/etc/nginx/sites-available:ro
+      - ./nginx/sites-enabled:/etc/nginx/sites-enabled:ro
+      - ../assets/nginx/conf.d/common.conf:/etc/nginx/conf.d/common.conf:ro
+      - ../assets/nginx/snippets:/etc/nginx/snippets:ro
+      - ../assets/ssl/certs:/etc/ssl/certs:ro
+      - ../assets/ssl/private:/etc/ssl/private:ro
+      - ../assets/www:/var/www:ro
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '--spider', '--proxy=off', 'http://web/']
+
+  observer:
+    build: .
+    command: bundle exec puma -C config/puma.rb
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file: observer.env
+    volumes:
+      - mastodon-system:/mastodon/public/system
+      - ../assets/ssl/certs:/etc/ssl/certs:ro
+    networks:
+      - internal_network
+    healthcheck:
+      test: ['CMD', 'wget', '-q', '--spider', '--proxy=off', 'http://observer:3000/health']
+
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file: observer.env
+    networks:
+      - internal_network
+    volumes:
+      - mastodon-system:/mastodon/public/system
+      - ../assets/ssl/certs:/etc/ssl/certs:ro
+    healthcheck:
+      test: ['CMD-SHELL', "ps aux | grep -q '[s]idekiq\ 6'"]
+
+  db:
+    image: postgres:14-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    networks:
+      - internal_network
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'postgres']
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    networks:
+      - internal_network
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+
+networks:
+  external_network:
+  internal_network:
+    internal: true
+
+volumes:
+  mastodon-system:
+  postgres-data:
+  redis-data:
