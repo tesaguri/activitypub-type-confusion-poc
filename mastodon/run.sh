@@ -64,7 +64,7 @@ main() {
 
 	echo "Legitimate actor: <$victim>" >&2
 	echo -n 'Checking the content type… ' >&2
-	# `curl -I` would pipe ANSI escape sequnces if the `--no-styled-output` option were'nt given.
+	# `curl -I` would pipe ANSI escape sequnces if the `--no-styled-output` option weren't given.
 	curlk -fISs --no-styled-output "$victim" | grep -i '^content-type:' >&2
 	echo 'Looking up via Mastodon…' >&2
 	local victim_json="$(
