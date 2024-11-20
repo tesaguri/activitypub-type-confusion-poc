@@ -6,12 +6,8 @@ This PoC demonstrates a takeover attack and an impersonation attack against acco
 
 The PoC involves two Misskey instances and an HTTP server:
 
-- `victim.poc.example`: A (open-registration) Misskey instance to which a supposed threat actor is going to upload fake Activity Streams documents:
-  - `@attacker`: An account registered by the threat actor
-  - `@takeoverVictim`: A target account of the takeover attack
-  - `@impersonationVictim`: A target account of the impersonation attack
-- `observer.poc.example`: A (open-registration) Misskey instance to fetch the fake objects
-  - `@attacker`: An account registered by the threat actor
+- `observer.poc.example`: A (open-registration) Misskey instance to receive the fake objects
+- `victim.poc.example`: A (open-registration) Misskey instance where a supposed threat actor is going to upload fake Activity Streams documents:
 - `attacker.poc.example`: A server controlled by the threat actor to host intermediary Activity Streams documents (this is a simple static HTML server)
 
 The Docker Compose project `docker-compose.yml` sets up these servers for you. Change the working directory to this directory and run the following to start the servers:
@@ -19,6 +15,15 @@ The Docker Compose project `docker-compose.yml` sets up these servers for you. C
 ```sh
 docker-compose up -d
 ```
+
+Now you should be able to open `observer.poc.example` via `http://localhost:3001/` and `victim.poc.example` via `http://localhost:3002/` with your Web browser on the host machine, which should prompt you to create an account.
+
+In this PoC, we are going to use the following accounts, which you need to create manually:
+
+- `@attacker@observer.poc.example`: An account registered by the threat actor
+- `@takeoverVictim@victim.poc.example`: A target account of the takeover attack
+- `@impersonationVictim@victim.poc.example`: A target account of the impersonation attack
+- `@attacker@victim.poc.example`: An account registered by the threat actor
 
 ### Prepare fake documents
 
